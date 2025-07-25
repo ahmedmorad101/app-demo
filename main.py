@@ -8,7 +8,11 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World","hostname":socket.gethostname()}
+    return {
+        "message": "Hello World",
+        "hostname":socket.gethostname(),
+        "now":datetime.now()
+    }
 
 @app.get("/now")
 async def now():
