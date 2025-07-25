@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 import uvicorn
 from datetime import datetime
+import socket
 
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World","hostname":socket.gethostname()}
 
 @app.get("/now")
 async def now():
